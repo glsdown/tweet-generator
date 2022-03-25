@@ -33,9 +33,7 @@ class TweetWindow(tk.Tk):
             pass
 
         # Get the main frame
-        self.tweet_frame = tk.Frame(
-            width=600, height=200, bd=3, relief=tk.RIDGE
-        )
+        self.tweet_frame = tk.Frame(width=600, height=200, bd=3, relief=tk.RIDGE)
         self.tweet_frame.pack_propagate(0)
         self.tweet_frame.pack(padx=20, pady=20)
 
@@ -43,9 +41,7 @@ class TweetWindow(tk.Tk):
         original = Image.open("img/{0}.png".format(self.screen_name))
         self.photo = ImageTk.PhotoImage(original)
 
-        self.image = tk.Label(
-            self.tweet_frame, image=self.photo, justify="center"
-        )
+        self.image = tk.Label(self.tweet_frame, image=self.photo, justify="center")
         self.image.place(x=0, y=0, relwidth=1, relheight=1)
 
         # Create the placeholder for the text

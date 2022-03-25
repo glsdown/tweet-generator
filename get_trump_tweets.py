@@ -4,12 +4,7 @@ import re
 
 import tweepy
 
-from credentials import (
-    ACCESS_KEY,
-    ACCESS_SECRET,
-    CONSUMER_KEY,
-    CONSUMER_SECRET,
-)
+from credentials import ACCESS_KEY, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET
 
 
 def get_all_tweets(screen_name):
@@ -70,9 +65,7 @@ def get_all_tweets(screen_name):
             )
             text = re.sub(r"http\S+", "", str(tweet.full_text))
             char_list = [
-                text[j]
-                for j in range(len(text))
-                if ord(text[j]) in range(65536)
+                text[j] for j in range(len(text)) if ord(text[j]) in range(65536)
             ]
             text = ""
             for j in char_list:
@@ -90,9 +83,7 @@ def get_all_tweets(screen_name):
             )
             text = re.sub(r"http\S+", "", str(tweet.text))
             char_list = [
-                text[j]
-                for j in range(len(text))
-                if ord(text[j]) in range(65536)
+                text[j] for j in range(len(text)) if ord(text[j]) in range(65536)
             ]
             text = ""
             for j in char_list:
@@ -112,9 +103,7 @@ def get_all_tweets(screen_name):
     # write the csv
     with open("data/{0}_tweets.csv".format(screen_name), "w") as f:
         writer = csv.writer(f)
-        writer.writerow(
-            ["id", "created_at", "text", "retweet_count", "favorite_count"]
-        )
+        writer.writerow(["id", "created_at", "text", "retweet_count", "favorite_count"])
         writer.writerows(outtweets)
 
     # pickling the list
