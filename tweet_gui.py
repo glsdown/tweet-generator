@@ -1,7 +1,8 @@
-from PIL import Image, ImageTk
 import tkinter as tk
 
-from tweet_generator import load_tweets, get_probable_tweet
+from PIL import Image, ImageTk
+
+from tweet_generator import get_probable_tweet, load_tweets
 
 
 class TweetWindow(tk.Tk):

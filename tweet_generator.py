@@ -50,9 +50,7 @@ def generate_tweet(model):
             # Update the probability with the conditional probability of the
             # new word
             if accumulator >= r:
-                prob *= model[tuple(text[-2:])][
-                    word
-                ]
+                prob *= model[tuple(text[-2:])][word]
                 text.append(word)
                 break
 
