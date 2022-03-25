@@ -8,10 +8,10 @@ It was an exploratory project so is very rough and ready.
 
 ## Usage
 
-As this was built a number of years ago, it uses an old method of authentication to scrape tweets from Twitter. To use it, you will need some Twitter credentials stored in a file called `credentials.py`. Whilst this isn't a tutorial I used in this project, there are some good instructions on how to get these [here](https://realpython.com/twitter-bot-python-tweepy/#creating-twitter-api-authentication-credentials).
+As this was built a number of years ago, it uses an old method of authentication to scrape tweets from Twitter. To use it, you will need some Twitter credentials stored in a file called `.env`. Whilst this isn't a tutorial I used in this project, there are some good instructions on how to get these [here](https://realpython.com/twitter-bot-python-tweepy/#creating-twitter-api-authentication-credentials).
 
 ```python
-# credentials.py
+# .env
 
 # Twitter API credentials
 CONSUMER_KEY = "......"
