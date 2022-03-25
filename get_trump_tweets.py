@@ -4,7 +4,12 @@ import re
 
 import tweepy
 
-from credentials import ACCESS_KEY, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET
+from credentials import (
+    ACCESS_KEY,
+    ACCESS_SECRET,
+    CONSUMER_KEY,
+    CONSUMER_SECRET,
+)
 
 
 def get_all_tweets(screen_name):
