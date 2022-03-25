@@ -12,7 +12,8 @@ known_local_folder = [
   "img"
 ]
 known_third_party = [
-  "tweepy"
+  "tweepy",
+  "nltk"
 ]
 multi_line_output = 3
 profile = "black"
