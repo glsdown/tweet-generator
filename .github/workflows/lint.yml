@@ -15,4 +15,4 @@ jobs:
       - name: Install nox
         run: python3.9 -m pip install -U nox
       - name: Lint Python source
-        run: nox -vs lint
+        run: nox -s lint

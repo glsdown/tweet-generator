@@ -3,8 +3,9 @@ import pickle
 import re
 
 import tweepy
+from dotenv import dotenv_values
 
-from credentials import ACCESS_KEY, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET
+CONFIG = dotenv_values(".env")
 
 
 def get_all_tweets(screen_name):
@@ -12,8 +13,10 @@ def get_all_tweets(screen_name):
     # method
 
     # authorize twitter, initialize tweepy
-    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+    auth = tweepy.OAuthHandler(
+        CONFIG["CONSUMER_KEY"], CONFIG["CONSUMER_SECRET"]
+    )
+    auth.set_access_token(CONFIG["ACCESS_KEY"], CONFIG["ACCESS_SECRET"])
     api = tweepy.API(auth)
 
     # initialize a list to hold all the tweepy Tweets
@@ -65,7 +68,9 @@ def get_all_tweets(screen_name):
             )
             text = re.sub(r"http\S+", "", str(tweet.full_text))
             char_list = [
-                text[j] for j in range(len(text)) if ord(text[j]) in range(65536)
+                text[j]
+                for j in range(len(text))
+                if ord(text[j]) in range(65536)
             ]
             text = ""
             for j in char_list:
@@ -83,7 +88,9 @@ def get_all_tweets(screen_name):
             )
             text = re.sub(r"http\S+", "", str(tweet.text))
             char_list = [
-                text[j] for j in range(len(text)) if ord(text[j]) in range(65536)
+                text[j]
+                for j in range(len(text))
+                if ord(text[j]) in range(65536)
             ]
             text = ""
             for j in char_list:
@@ -103,7 +110,9 @@ def get_all_tweets(screen_name):
     # write the csv
     with open("data/{0}_tweets.csv".format(screen_name), "w") as f:
         writer = csv.writer(f)
-        writer.writerow(["id", "created_at", "text", "retweet_count", "favorite_count"])
+        writer.writerow(
+            ["id", "created_at", "text", "retweet_count", "favorite_count"]
+        )
         writer.writerows(outtweets)
 
     # pickling the list
