@@ -1,0 +1,18 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=42", "wheel"]
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+include_trailing_comma = true
+known_local_folder = [
+  "data",
+  "img"
+]
+known_third_party = [
+  "tweepy"
+]
+multi_line_output = 3
+profile = "black"
